@@ -6,6 +6,7 @@ import { ChevronLeftIcon } from "lucide-react";
 import { FloatingPaths } from "./floating-paths";
 import { Logo } from "./logo";
 import { signIn } from "@/lib/auth-client";
+import Link from "next/link";
 
 export function AuthPage() {
   return (
@@ -43,10 +44,10 @@ export function AuthPage() {
         </div>
 
         <Button asChild className="absolute top-7 left-5" variant="ghost">
-          <a href="#">
+          <Link href="/">
             <ChevronLeftIcon />
             Home
-          </a>
+          </Link>
         </Button>
 
         <div className="mx-auto space-y-4 sm:w-sm">

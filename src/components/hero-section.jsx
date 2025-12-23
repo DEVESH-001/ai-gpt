@@ -5,6 +5,8 @@ import { Logo } from "@/components/logo";
 import { ArrowRight, Menu, Rocket, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { UserButton } from "@/modules/authentication/components/UserButton";
+import { currentUser } from "@/modules/authentication/actions";
 
 const menuItems = [
   { name: "Features", href: "#features" },
@@ -62,11 +64,14 @@ export default function HeroSection() {
                 </div>
 
                 <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:border-l lg:pl-6">
-                  <Button asChild variant="outline" size="sm">
-                    <Link href="#">
+                  {/* <Link href="#">
                       <span>Login</span>
-                    </Link>
-                  </Button>
+                    </Link> */}
+
+                  <div>
+                    <UserButton user={currentUser}/>
+                  </div>
+
                   <Button asChild size="sm">
                     <Link href="#">
                       <span>Login</span>

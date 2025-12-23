@@ -3,7 +3,7 @@ const nextConfig = {
   /* config options here */
   reactCompiler: true,
   images: {
-    domains: ["https://html.tailus.io"],
+    domains: ["https://html.tailus.io", "https://github.com"],
   },
 };
 
