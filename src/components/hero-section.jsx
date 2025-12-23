@@ -32,7 +32,7 @@ export default function HeroSection() {
                   className="flex items-center space-x-2"
                 >
                   {/* <Logo /> */}
-                  <Image src={"/logo.svg"} height={20} width={20} alt="logo" />
+                  <Image src={"/logo.svg"} height={30} width={30} alt="logo" />
                 </Link>
 
                 <button
@@ -114,14 +114,16 @@ export default function HeroSection() {
                   <Button size="lg" asChild>
                     <Link href="#">
                       <Rocket className="relative size-4" />
-                      <span className="text-nowrap">Start Chatting Free</span>
+                      <span className="text-nowrap hover:bg-[#CF7450]">
+                        Start Chatting Free
+                      </span>
                     </Link>
                   </Button>
                 </div>
               </div>
             </div>
 
-            <div className="mask-b-from-55% relative mx-auto mt-16 max-w-6xl overflow-hidden px-4">
+            <div className="mask-b-from-90% relative mx-auto mt-16 max-w-6xl overflow-hidden px-4">
               <Image
                 className="z-2 border-border/25 relative hidden rounded-2xl border dark:block"
                 src="/hero.png"
@@ -140,7 +142,7 @@ export default function HeroSection() {
           </div>
         </section>
         {/* logo */}
-        <section className="bg-background relative z-10 pb-16">
+        <section className="bg-background relative z-10 pb-16 mt-20">
           <div className="m-auto max-w-5xl px-6">
             <h2 className="text-center text-lg font-medium">
               People from over 50+ companies use Vion.buzz
