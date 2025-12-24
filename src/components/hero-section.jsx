@@ -5,93 +5,25 @@ import { Logo } from "@/components/logo";
 import { ArrowRight, Menu, Rocket, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { UserButton } from "@/modules/authentication/components/UserButton";
-import { currentUser } from "@/modules/authentication/actions";
 
-const menuItems = [
-  { name: "Features", href: "#features" },
-  { name: "Solution", href: "#solution" },
-  { name: "Pricing", href: "#pricing" },
-  { name: "About", href: "#about" },
-];
+
+
 
 export default function HeroSection() {
-  const [menuState, setMenuState] = React.useState(false);
+  
 
   return (
     <>
-      <header>
-        <nav
-          data-state={menuState && "active"}
-          className="fixed z-20 w-full border-b border-dashed bg-white backdrop-blur md:relative dark:bg-zinc-950/50 lg:dark:bg-transparent"
-        >
-          <div className="m-auto max-w-5xl px-6">
-            <div className="flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
-              <div className="flex w-full justify-between lg:w-auto">
-                <Link
-                  href="/"
-                  aria-label="home"
-                  className="flex items-center space-x-2"
-                >
-                  {/* <Logo /> */}
-                  <Image src={"/logo.svg"} height={30} width={30} alt="logo" />
-                </Link>
-
-                <button
-                  onClick={() => setMenuState(!menuState)}
-                  aria-label={menuState == true ? "Close Menu" : "Open Menu"}
-                  className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden"
-                >
-                  <Menu className="in-data-[state=active]:rotate-180 in-data-[state=active]:scale-0 in-data-[state=active]:opacity-0 m-auto size-6 duration-200" />
-                  <X className="in-data-[state=active]:rotate-0 in-data-[state=active]:scale-100 in-data-[state=active]:opacity-100 absolute inset-0 m-auto size-6 -rotate-180 scale-0 opacity-0 duration-200" />
-                </button>
-              </div>
-
-              <div className="bg-background in-data-[state=active]:block lg:in-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent">
-                <div className="lg:pr-4">
-                  <ul className="space-y-6 text-base lg:flex lg:gap-8 lg:space-y-0 lg:text-sm">
-                    {menuItems.map((item, index) => (
-                      <li key={index}>
-                        <Link
-                          href={item.href}
-                          className="text-muted-foreground hover:text-accent-foreground block duration-150"
-                        >
-                          <span>{item.name}</span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:border-l lg:pl-6">
-                  {/* <Link href="#">
-                      <span>Login</span>
-                    </Link> */}
-
-                  <div>
-                    <UserButton user={currentUser}/>
-                  </div>
-
-                  <Button asChild size="sm">
-                    <Link href="#">
-                      <span>Login</span>
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </header>
+      
       <main className="overflow-hidden">
         <section>
           <div className="relative pt-24">
             <div className="mx-auto max-w-7xl px-6">
-              <div className="max-w-3xl text-center sm:mx-auto lg:mr-auto lg:mt-0 lg:w-4/5">
+              <div className="max-w-3xl text-center sm:mx-auto lg:mt-0 lg:mr-auto lg:w-4/5">
                 <Link
                   href="https://openrouter.ai/"
                   target="__blank"
-                  className="rounded-(--radius) mx-auto flex w-fit items-center gap-2 border p-1 pr-1"
+                  className="mx-auto flex w-fit items-center gap-2 rounded-(--radius) border p-1 pr-1"
                 >
                   <span className="bg-muted rounded-[calc(var(--radius)-0.25rem)] px-2 py-1 text-xs">
                     Powered by OpenRouter
@@ -102,10 +34,10 @@ export default function HeroSection() {
                   {/* <ArrowRight className="size-4" /> */}
                 </Link>
 
-                <h1 className="mt-8 text-balance text-4xl font-semibold md:text-5xl xl:text-6xl xl:leading-[1.125]">
+                <h1 className="mt-8 text-4xl font-semibold text-balance md:text-5xl xl:text-6xl xl:leading-[1.125]">
                   One Chat App. Every AI Model.
                 </h1>
-                <p className="mx-auto mt-8 hidden max-w-2xl text-wrap text-lg sm:block">
+                <p className="mx-auto mt-8 hidden max-w-2xl text-lg text-wrap sm:block">
                   Chat with GPT-4, Claude, Gemini, and Ollama models all in one
                   place. Switch between AI models instantly and find the perfect
                   response every time.
@@ -117,7 +49,7 @@ export default function HeroSection() {
 
                 <div className="mt-8">
                   <Button size="lg" asChild>
-                    <Link href="#">
+                    <Link href="/dashboard">
                       <Rocket className="relative size-4" />
                       <span className="text-nowrap hover:bg-[#CF7450]">
                         Start Chatting Free
@@ -128,16 +60,16 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <div className="mask-b-from-90% relative mx-auto mt-16 max-w-6xl overflow-hidden px-4">
+            <div className="relative mx-auto mt-16 max-w-6xl overflow-hidden mask-b-from-90% px-4">
               <Image
-                className="z-2 border-border/25 relative hidden rounded-2xl border dark:block"
+                className="border-border/25 relative z-2 hidden rounded-2xl border dark:block"
                 src="/hero.png"
                 alt="app screen"
                 width={2796}
                 height={2008}
               />
               <Image
-                className="z-2 border-border/25 relative rounded-2xl border dark:hidden"
+                className="border-border/25 relative z-2 rounded-2xl border dark:hidden"
                 src="/hero.png"
                 alt="app screen"
                 width={2796}
@@ -147,7 +79,7 @@ export default function HeroSection() {
           </div>
         </section>
         {/* logo */}
-        <section className="bg-background relative z-10 pb-16 mt-20">
+        <section className="bg-background relative z-10 mt-20 pb-16">
           <div className="m-auto max-w-5xl px-6">
             <h2 className="text-center text-lg font-medium">
               People from over 50+ companies use Vion.buzz

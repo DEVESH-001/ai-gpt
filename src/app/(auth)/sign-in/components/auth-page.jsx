@@ -69,7 +69,7 @@ export function AuthPage() {
               size="lg"
               type="button"
               onClick={() =>
-                signIn.social({ provider: "google", callbackURL: "/" })
+                signIn.social({ provider: "google", callbackURL: "/dashboard" })
               }
             >
               <GoogleIcon />
